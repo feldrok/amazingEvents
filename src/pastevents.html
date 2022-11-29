@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
+
+    <title>Amazing Events</title>
+  </head>
+  <body>
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between">
+          <div class="flex space-x-7">
+            <div>
+              <!-- Website Logo -->
+              <a href="#" class="flex items-center py-4 px-2">
+                <img
+                  src="./assets/images/logo.png"
+                  alt="Logo"
+                  class="h-8 mr-2"
+                />
+              </a>
+            </div>
+          </div>
+          <!-- Primary Navbar items -->
+          <div class="hidden md:flex items-center space-x-1">
+            <a
+              href="./index.html"
+              class="py-4 px-2 text-gray-500 font-semibold hover:text-primary-700 transition duration-300"
+              >Home</a
+            >
+            <a
+              href="./upcomingevents.html"
+              class="py-4 px-2 text-gray-500 font-semibold hover:text-primary-700 transition duration-300"
+              >Upcoming Events</a
+            >
+            <a
+              href="#"
+              class="py-4 px-2 text-primary-500 border-b-4 border-primary-500 font-semibold"
+              >Past Events</a
+            >
+            <a
+              href="./contact.html"
+              class="py-4 px-2 text-gray-500 font-semibold hover:text-primary-700 transition duration-300"
+              >Contact</a
+            >
+            <a
+              href="./stats.html"
+              class="py-4 px-2 text-gray-500 font-semibold hover:text-primary-700 transition duration-300"
+              >Stats</a
+            >
+          </div>
+          <!-- Mobile menu button -->
+          <div class="md:hidden flex items-center">
+            <button class="outline-none mobile-menu-button">
+              <svg
+                class="w-6 h-6 text-gray-500 hover:text-primary-500 cursor-pointer"
+                x-show="!showMenu"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- mobile menu -->
+      <div class="hidden md:hidden mobile-menu">
+        <ul class="">
+          <li class="active">
+            <a
+              href="index.html"
+              class="block text-sm px-2 py-4 hover:bg-primary-300 hover:text-white transition duration-300"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="./upcomingevents.html"
+              class="block text-sm px-2 py-4 hover:bg-primary-300 hover:text-white transition duration-300"
+              >Upcoming Events</a
+            >
+          </li>
+          <li>
+            <a
+              href="./pastevents.html"
+              class="block text-sm px-2 py-4 text-white bg-primary-500 font-semibold"
+              >Past Events</a
+            >
+          </li>
+          <li>
+            <a
+              href="./contact.html"
+              class="block text-sm px-2 py-4 hover:bg-primary-300 hover:text-white transition duration-300"
+              >Contact</a
+            >
+          </li>
+          <li>
+            <a
+              href="./stats.html"
+              class="block text-sm px-2 py-4 hover:bg-primary-300 hover:text-white transition duration-300"
+              >Stats</a
+            >
+          </li>
+        </ul>
+      </div>
+      <script>
+        const btn = document.querySelector("button.mobile-menu-button")
+        const menu = document.querySelector(".mobile-menu")
+
+        btn.addEventListener("click", () => {
+          menu.classList.toggle("hidden")
+        })
+      </script>
+    </nav>
+
+    <!-- Carousel -->
+    <section class="shadow-lg">
+      <div class="relative">
+        <ul id="slider">
+          <li class="h-[30vh] relative delay-150">
+            <img
+              class="h-full w-full object-cover"
+              src="./assets/images/tickets.jpg"
+              alt=""
+            />
+            <div class="absolute top-0 left-0 h-full w-full flex">
+              <h2
+                class="text-4xl font-bold text-white my-auto w-full text-center px-20"
+              >
+                Past Events
+              </h2>
+            </div>
+          </li>
+          <li class="h-[30vh] relative hidden">
+            <img
+              class="h-full w-full object-cover"
+              src="./assets/images/audience.jpg"
+              alt=""
+            />
+            <div class="absolute top-0 left-0 h-full w-full flex">
+              <h2
+                class="text-4xl font-bold text-white my-auto w-full text-center px-20"
+              >
+                Past Events
+              </h2>
+            </div>
+          </li>
+          <li class="h-[30vh] relative delay-150 hidden">
+            <img
+              class="h-full w-full object-cover"
+              src="./assets/images/livemusic.jpg"
+              alt=""
+            />
+            <div class="absolute top-0 left-0 h-full w-full flex">
+              <h2
+                class="text-4xl font-bold text-white my-auto w-full text-center px-20"
+              >
+                Past Events
+              </h2>
+            </div>
+          </li>
+        </ul>
+        <div class="absolute px-5 flex h-full w-full top-0 left-0">
+          <div class="my-auto w-full flex justify-between">
+            <button
+              onclick="prev()"
+              class="bg-white p-3 rounded-full bg-opacity-80 shadow-lg hover:scale-105 transition-all"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+                />
+              </svg>
+            </button>
+            <button
+              onclick="next()"
+              class="bg-white p-3 rounded-full bg-opacity-80 shadow-lg hover:scale-105 transition-all"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation and Search bar -->
+    <section
+      class="flex flex-col flex-wrap items-center justify-center p-5 xl:flex-nowrap xl:flex-row xl:justify-around"
+    >
+      <div class="w-full xl:w-auto">
+        <ul class="flex border-b border-gray-100">
+          <li class="flex-1">
+            <a class="relative block p-4" href="">
+              <span
+                class="absolute inset-x-0 -bottom-px h-px w-full bg-pink-600"
+              ></span>
+
+              <div class="flex items-center justify-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
+                  />
+                </svg>
+
+                <span
+                  class="ml-3 text-sm font-medium text-gray-900 hidden md:flex"
+                >
+                  Top
+                </span>
+              </div>
+            </a>
+          </li>
+          <li class="flex-1">
+            <a class="relative block p-4" href="">
+              <span class="absolute inset-x-0 -bottom-px h-px w-full"></span>
+
+              <div class="flex items-center justify-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z"
+                  />
+                </svg>
+
+                <span
+                  class="ml-3 text-sm font-medium text-gray-900 hidden md:flex"
+                >
+                  Concerts
+                </span>
+              </div>
+            </a>
+          </li>
+
+          <li class="flex-1">
+            <a class="relative block p-4" href="">
+              <div class="flex items-center justify-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0"
+                  />
+                </svg>
+
+                <span
+                  class="ml-3 text-sm font-medium text-gray-900 hidden md:flex"
+                >
+                  Sports
+                </span>
+              </div>
+            </a>
+          </li>
+
+          <li class="flex-1">
+            <a class="relative block p-4" href="">
+              <div class="flex items-center justify-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z"
+                  />
+                </svg>
+
+                <span
+                  class="ml-3 text-sm font-medium text-gray-900 hidden md:flex"
+                >
+                  Museums
+                </span>
+              </div>
+            </a>
+          </li>
+
+          <li class="flex-1">
+            <a class="relative block p-4" href="">
+              <div class="flex items-center justify-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 010 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 010-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375z"
+                  />
+                </svg>
+
+                <span
+                  class="ml-3 text-sm font-medium text-gray-900 hidden md:flex"
+                >
+                  Cinema
+                </span>
+              </div>
+            </a>
+          </li>
+          <li class="flex-1">
+            <a class="relative block p-4" href="">
+              <div class="flex items-center justify-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"
+                  />
+                </svg>
+
+                <span
+                  class="ml-3 text-sm font-medium text-gray-900 hidden md:flex"
+                >
+                  Literature
+                </span>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="flex w-full lg:w-auto justify-center p-6">
+        <div class="relative w-96 max-w-xl">
+          <form action="">
+            <div
+              class="flex justify-between overflow-hidden rounded-full bg-white shadow shadow-tertiary hover:scale-105 transition-all duration-150"
+            >
+              <input
+                type="search"
+                placeholder="Search..."
+                class="block w-full flex-1 py-2 px-3 focus:outline-none"
+              />
+              <span
+                class="m-1 inline-flex cursor-pointer items-center rounded-full bg-primary-500 p-2 hover:bg-primary-700"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="white"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cards -->
+    <section class="flex flex-wrap m-4 min-h-screen">
+      <div class="xl:w-1/4 md:w-1/2 p-4">
+        <div class="backgroundBlur flex flex-col justify-around p-6 rounded-lg customHeight">
+          <img
+            class="h-40 rounded w-full object-cover object-center mb-6"
+            src="./assets/images/books.jpg"
+            alt="content"
+          />
+          <h3
+            class="tracking-widest text-primary-500 text-xs font-medium title-font"
+          >
+            Literature
+          </h3>
+          <h2 class="text-lg text-gray-900 font-medium title-font mb-4">
+            Troubled Blood release
+          </h2>
+          <p class="leading-relaxed text-base">
+            Join J. K. Rowling for a special event to celebrate the release of
+            her new book, Troubled Blood.
+          </p>
+          <div class="flex justify-between items-center pt-2">
+            <h3 class="font-bold text-tertiary">$15 USD</h3>
+            <a class="p-2 pl-4 pr-4 rounded-full text-white bg-tertiary shadow-md shadow-gray-900 hover:bg-gray-800" href="#">More details...</a>
+          </div>
+        </div>
+      </div>
+      <div class="xl:w-1/4 md:w-1/2 p-4">
+        <div class="backgroundBlur flex flex-col justify-around p-6 rounded-lg customHeight">
+          <img
+            class="h-40 rounded w-full object-cover object-center mb-6"
+            src="./assets/images/cine.jpg"
+            alt="content"
+          />
+          <h3
+            class="tracking-widest text-primary-500 text-xs font-medium title-font"
+          >
+            Cinema
+          </h3>
+          <h2 class="text-lg text-gray-900 font-medium title-font mb-4">
+            Avengers: Endgame release
+          </h2>
+          <p class="leading-relaxed text-base">
+            The Avengers and their allies must be willing to sacrifice all in an
+            attempt to defeat the powerful Thanos.
+          </p>
+          <div class="flex justify-between items-center pt-2">
+            <h3 class="font-bold text-tertiary">$10 USD</h3>
+            <a class="p-2 pl-4 pr-4 rounded-full text-white bg-tertiary shadow-md shadow-gray-900 hover:bg-gray-800" href="#">More details...</a>
+          </div>
+        </div>
+      </div>
+      <div class="xl:w-1/4 md:w-1/2 p-4">
+        <div class="backgroundBlur flex flex-col justify-around p-6 rounded-lg customHeight">
+          <img
+            class="h-40 rounded w-full object-cover object-center mb-6"
+            src="./assets/images/concierto.jpg"
+            alt="content"
+          />
+          <h3
+            class="tracking-widest text-primary-500 text-xs font-medium title-font"
+          >
+            Concerts
+          </h3>
+          <h2 class="text-lg text-gray-900 font-medium title-font mb-4">
+            Deep Purple world tour
+          </h2>
+          <div>
+            <p class="h-20 leading-relaxed text-base overflow-hidden text-ellipsis">
+              Deep Purple is a British rock band formed in Hertford in 1968. The
+              band is considered to be among the pioneers of heavy metal and
+              modern hard rock, although their musical approach changed over the
+              years.
+            </p>
+          </div>
+          <div class="flex justify-between items-center pt-2">
+            <h3 class="font-bold text-tertiary">from $25 USD</h3>
+            <a class="p-2 pl-4 pr-4 rounded-full text-white bg-tertiary shadow-md shadow-gray-900 hover:bg-gray-800" href="#">More details...</a>
+          </div>
+        </div>
+      </div>
+      <div class="xl:w-1/4 md:w-1/2 p-4">
+        <div class="backgroundBlur flex flex-col justify-around p-6 rounded-lg customHeight">
+          <img
+            class="h-40 rounded w-full object-cover object-center mb-6"
+            src="./assets/images/maraton.jpg"
+            alt="content"
+          />
+          <h3
+            class="tracking-widest text-primary-500 text-xs font-medium title-font"
+          >
+            Sports
+          </h3>
+          <h2 class="text-lg text-gray-900 font-medium title-font mb-4">
+            Ironman 70.3 World Championship
+          </h2>
+          <p class="leading-relaxed text-base">
+            Ironman 70.3 World Championship is the most prestigious half
+            distance triathlon in the world.
+          </p>
+          <div class="flex justify-between items-center pt-2">
+            <h3 class="font-bold text-tertiary">$39 USD</h3>
+            <a class="p-2 pl-4 pr-4 rounded-full text-white bg-tertiary shadow-md shadow-gray-900 hover:bg-gray-800" href="#">More details...</a>
+          </div>
+        </div>
+      </div>
+      <div class="xl:w-1/4 md:w-1/2 p-4">
+        <div class="backgroundBlur flex flex-col justify-around p-6 rounded-lg customHeight">
+          <img
+            class="h-40 rounded w-full object-cover object-center mb-6"
+            src="./assets/images/chileargentina.jpg"
+            alt="content"
+          />
+          <h3
+            class="tracking-widest text-primary-500 text-xs font-medium title-font"
+          >
+            Sports
+          </h3>
+          <h2 class="text-lg text-gray-900 font-medium title-font mb-4">
+            Chile vs Argentina
+          </h2>
+          <p class="leading-relaxed text-base">
+            Chile vs Argentina is a football match between the Chilean and
+            Argentine national teams.
+          </p>
+          <div class="flex justify-between items-center pt-2">
+            <h3 class="font-bold text-tertiary">from $25 USD</h3>
+            <a class="p-2 pl-4 pr-4 rounded-full text-white bg-tertiary shadow-md shadow-gray-900 hover:bg-gray-800" href="#">More details...</a>
+          </div>
+        </div>
+      </div>
+      <div class="xl:w-1/4 md:w-1/2 p-4">
+        <div class="backgroundBlur flex flex-col justify-around p-6 rounded-lg customHeight">
+          <img
+            class="h-40 rounded w-full object-cover object-center mb-6"
+            src="./assets/images/museum.jpg"
+            alt="content"
+          />
+          <h3
+            class="tracking-widest text-primary-500 text-xs font-medium title-font"
+          >
+            Museum
+          </h3>
+          <h2 class="text-lg text-gray-900 font-medium title-font mb-4">
+            Mona Lisa exhibition
+          </h2>
+          <p class="leading-relaxed text-base">
+            The Mona Lisa is a half-length portrait painting by the Italian
+            artist Leonardo da Vinci.
+          </p>
+          <div class="flex justify-between items-center pt-2">
+            <h3 class="font-bold text-tertiary">from $49 USD</h3>
+            <a class="p-2 pl-4 pr-4 rounded-full text-white bg-tertiary shadow-md shadow-gray-900 hover:bg-gray-800" href="#">More details...</a>
+          </div>
+        </div>
+      </div>
+      <div class="xl:w-1/4 md:w-1/2 p-4">
+        <div class="backgroundBlur flex flex-col justify-around p-6 rounded-lg customHeight">
+          <img
+            class="h-40 rounded w-full object-cover object-center mb-6"
+            src="./assets/images/luismi.jpg"
+            alt="content"
+          />
+          <h3
+            class="tracking-widest text-primary-500 text-xs font-medium title-font"
+          >
+            Concerts
+          </h3>
+          <h2 class="text-lg text-gray-900 font-medium title-font mb-4">
+            Luis Miguel on tour
+          </h2>
+          <p class="leading-relaxed text-base">
+            Luis Miguel Gallego Basteri is a Mexican singer, songwriter,
+            actor, and record producer. Enjoy his music!
+          </p>
+          <div class="flex justify-between items-center pt-2">
+            <h3 class="font-bold text-tertiary">from $30 USD</h3>
+            <a class="p-2 pl-4 pr-4 rounded-full text-white bg-tertiary shadow-md shadow-gray-900 hover:bg-gray-800" href="#">More details...</a>
+          </div>
+        </div>
+      </div>
+      <div class="xl:w-1/4 md:w-1/2 p-4">
+        <div class="backgroundBlur flex flex-col justify-around p-6 rounded-lg customHeight">
+          <img
+            class="h-40 rounded w-full object-cover object-center mb-6"
+            src="./assets/images/creamfields.jpg"
+            alt="content"
+          />
+          <h3
+            class="tracking-widest text-primary-500 text-xs font-medium title-font"
+          >
+            Concerts
+          </h3>
+          <h2 class="text-lg text-gray-900 font-medium title-font mb-4">
+            Creamfields 2023
+          </h2>
+          <p class="leading-relaxed text-base">
+            Creamfields is a dance music festival held annually in Santiago, Chile.
+            Join the 2023 version and enjoy the best music!
+          </p>
+          <div class="flex justify-between items-center pt-2">
+            <h3 class="font-bold text-tertiary">from $50 USD</h3>
+            <a class="p-2 pl-4 pr-4 rounded-full text-white bg-tertiary shadow-md shadow-gray-900 hover:bg-gray-800" href="#">More details...</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-primary-500 flex justify-between">
+      <div class="p-5 flex w-56 justify-around items-center">
+        <a href="#">
+          <img class="h-10 w-10" src="./assets/icons/instagram.png" alt="instagram-icon" />
+        </a>
+        <a href="#">
+          <img class="h-10 w-10" src="./assets/icons/facebook.png" alt="facebook-icon" />
+        </a>
+        <a href="#">
+          <img class="h-10 w-10" src="./assets/icons/whatsapp.png" alt="whatsapp-icon" />
+        </a>
+      </div>
+      <div class="text-white flex flex-col justify-center p-5">
+        <h2 class="font-bold uppercase tracking-widest">MindHub Cohort 40</h2>
+        <h3 class="font-thin font-mono tracking-tighter">by <span class="font-bold">Matías</span> Mora Valero</h3>
+      </div>
+    </footer>
+    <script src="./main.js"></script>
+  </body>
+</html>

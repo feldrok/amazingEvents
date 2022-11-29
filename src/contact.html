@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
+
+    <title>Amazing Events</title>
+  </head>
+  <body>
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between">
+          <div class="flex space-x-7">
+            <div>
+              <!-- Website Logo -->
+              <a href="#" class="flex items-center py-4 px-2">
+                <img
+                  src="./assets/images/logo.png"
+                  alt="Logo"
+                  class="h-8 mr-2"
+                />
+              </a>
+            </div>
+          </div>
+          <!-- Primary Navbar items -->
+          <div class="hidden md:flex items-center space-x-1">
+            <a
+              href="./index.html"
+              class="py-4 px-2 text-gray-500 font-semibold hover:text-primary-700 transition duration-300"
+              >Home</a
+            >
+            <a
+              href="./upcomingevents.html"
+              class="py-4 px-2 text-gray-500 font-semibold hover:text-primary-700 transition duration-300"
+              >Upcoming Events</a
+            >
+            <a
+              href="./pastevents.html"
+              class="py-4 px-2 text-gray-500 font-semibold hover:text-primary-700 transition duration-300"
+              >Past Events</a
+            >
+            <a
+              href="./contact.html"
+              class="py-4 px-2 text-primary-500 border-b-4 border-primary-500 font-semibold"
+              >Contact</a
+            >
+            <a
+              href="./stats.html"
+              class="py-4 px-2 text-gray-500 font-semibold hover:text-primary-700 transition duration-300"
+              >Stats</a
+            >
+          </div>
+          <!-- Mobile menu button -->
+          <div class="md:hidden flex items-center">
+            <button class="outline-none mobile-menu-button">
+              <svg
+                class="w-6 h-6 text-gray-500 hover:text-primary-500 cursor-pointer"
+                x-show="!showMenu"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- mobile menu -->
+      <div class="hidden md:hidden mobile-menu">
+        <ul class="">
+          <li class="active">
+            <a
+              href="./index.html"
+              class="block text-sm px-2 py-4 hover:bg-primary-300 hover:text-white transition duration-300"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="./upcomingevents.html"
+              class="block text-sm px-2 py-4 hover:bg-primary-300 hover:text-white transition duration-300"
+              >Upcoming Events</a
+            >
+          </li>
+          <li>
+            <a
+              href="./pastevents.html"
+              class="block text-sm px-2 py-4 hover:bg-primary-300 hover:text-white transition duration-300"
+              >Past Events</a
+            >
+          </li>
+          <li>
+            <a
+              href="./contact.html"
+              class="block text-sm px-2 py-4 text-white bg-primary-500 font-semibold"
+              >Contact</a
+            >
+          </li>
+          <li>
+            <a
+              href="./stats.html"
+              class="block text-sm px-2 py-4 hover:bg-primary-300 hover:text-white transition duration-300"
+              >Stats</a
+            >
+          </li>
+        </ul>
+      </div>
+      <script>
+        const btn = document.querySelector("button.mobile-menu-button")
+        const menu = document.querySelector(".mobile-menu")
+
+        btn.addEventListener("click", () => {
+          menu.classList.toggle("hidden")
+        })
+      </script>
+    </nav>
+
+    <!-- Carousel -->
+    <section class="shadow-lg">
+      <div class="relative">
+        <ul id="slider">
+          <li class="h-[30vh] relative delay-150">
+            <img
+              class="h-full w-full object-cover"
+              src="./assets/images/tickets.jpg"
+              alt=""
+            />
+            <div class="absolute top-0 left-0 h-full w-full flex">
+              <h2
+                class="text-4xl font-bold text-white my-auto w-full text-center px-20"
+              >
+                Contact
+              </h2>
+            </div>
+          </li>
+          <li class="h-[30vh] relative hidden">
+            <img
+              class="h-full w-full object-cover"
+              src="./assets/images/audience.jpg"
+              alt=""
+            />
+            <div class="absolute top-0 left-0 h-full w-full flex">
+              <h2
+                class="text-4xl font-bold text-white my-auto w-full text-center px-20"
+              >
+                Contact
+              </h2>
+            </div>
+          </li>
+          <li class="h-[30vh] relative delay-150 hidden">
+            <img
+              class="h-full w-full object-cover"
+              src="./assets/images/livemusic.jpg"
+              alt=""
+            />
+            <div class="absolute top-0 left-0 h-full w-full flex">
+              <h2
+                class="text-4xl font-bold text-white my-auto w-full text-center px-20"
+              >
+                Contact
+              </h2>
+            </div>
+          </li>
+        </ul>
+        <div class="absolute px-5 flex h-full w-full top-0 left-0">
+          <div class="my-auto w-full flex justify-between">
+            <button
+              onclick="prev()"
+              class="bg-white p-3 rounded-full bg-opacity-80 shadow-lg hover:scale-105 transition-all"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+                />
+              </svg>
+            </button>
+            <button
+              onclick="next()"
+              class="bg-white p-3 rounded-full bg-opacity-80 shadow-lg hover:scale-105 transition-all"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="text-gray-600 body-font relative">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-col text-center w-full mb-12">
+          <h1
+            class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900"
+          >
+            Contact Us
+          </h1>
+          <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
+            We are always happy to hear from you. Please feel free to contact us
+            with any questions or comments you may have.
+          </p>
+        </div>
+        <div class="lg:w-1/2 md:w-2/3 mx-auto">
+          <form action="#" class="flex flex-wrap -m-2">
+            <div class="p-2 w-1/2">
+              <div class="relative">
+                <label for="name" class="leading-7 text-sm text-gray-600"
+                  >Name</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-primary-500 focus:bg-white focus:ring-2 focus:ring-primary-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  placeholder="Jhon Doe"
+                />
+              </div>
+            </div>
+            <div class="p-2 w-1/2">
+              <div class="relative">
+                <label for="email" class="leading-7 text-sm text-gray-600"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-primary-500 focus:bg-white focus:ring-2 focus:ring-primary-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  placeholder="example@gmail.com"
+                />
+              </div>
+            </div>
+            <div class="p-2 w-full">
+              <div class="relative">
+                <label for="message" class="leading-7 text-sm text-gray-600"
+                  >Message</label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-primary-500 focus:bg-white focus:ring-2 focus:ring-primary-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                  placeholder="Say something..."
+                ></textarea>
+              </div>
+            </div>
+            <div class="p-2 w-full">
+              <input
+                type="submit"
+                class="flex mx-auto text-white bg-primary-500 border-0 py-2 px-8 focus:outline-none hover:bg-primary-600 rounded text-lg"
+              />
+            </div>
+          </form>
+          <div
+            class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center"
+          >
+            <a class="text-primary-500">contact@amazingevents.com</a>
+            <p class="leading-normal my-5">
+              Street Address <br />City, State Zip
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-primary-500 flex justify-between">
+      <div class="p-5 flex w-56 justify-around items-center">
+        <a href="#">
+          <img
+            class="h-10 w-10"
+            src="./assets/icons/instagram.png"
+            alt="instagram-icon"
+          />
+        </a>
+        <a href="#">
+          <img
+            class="h-10 w-10"
+            src="./assets/icons/facebook.png"
+            alt="facebook-icon"
+          />
+        </a>
+        <a href="#">
+          <img
+            class="h-10 w-10"
+            src="./assets/icons/whatsapp.png"
+            alt="whatsapp-icon"
+          />
+        </a>
+      </div>
+      <div class="text-white flex flex-col justify-center p-5">
+        <h2 class="font-bold uppercase tracking-widest">MindHub Cohort 40</h2>
+        <h3 class="font-thin font-mono tracking-tighter">
+          by <span class="font-bold">Matías</span> Mora Valero
+        </h3>
+      </div>
+    </footer>
+    <script src="./main.js"></script>
+  </body>
+</html>
