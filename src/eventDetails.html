@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/favicon.png"
+      type="image/x-icon"
+    />
+
+    <title>Amazing Events</title>
+  </head>
+  <body>
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between">
+          <div class="flex space-x-7">
+            <div>
+              <!-- Website Logo -->
+              <a href="./index.html" class="flex items-center py-4 px-2">
+                <img
+                  src="./assets/images/logo.png"
+                  alt="Logo"
+                  class="h-8 mr-2"
+                />
+              </a>
+            </div>
+          </div>
+          <!-- Primary Navbar items -->
+          <div class="hidden md:flex items-center space-x-1">
+            <a
+              href="./index.html"
+              class="py-4 px-2 text-gray-500 font-semibold hover:text-primary-700 transition duration-300"
+              >Home</a
+            >
+            <a
+              href="./upcomingevents.html"
+              class="py-4 px-2 text-gray-500 font-semibold hover:text-primary-700 transition duration-300"
+              >Upcoming Events</a
+            >
+            <a
+              href="./pastevents.html"
+              class="py-4 px-2 text-gray-500 font-semibold hover:text-primary-700 transition duration-300"
+              >Past Events</a
+            >
+            <a
+              href="./contact.html"
+              class="py-4 px-2 text-primary-500 border-b-4 border-primary-500 font-semibold"
+              >Contact</a
+            >
+            <a
+              href="./stats.html"
+              class="py-4 px-2 text-gray-500 font-semibold hover:text-primary-700 transition duration-300"
+              >Stats</a
+            >
+          </div>
+          <!-- Mobile menu button -->
+          <div class="md:hidden flex items-center">
+            <button class="outline-none mobile-menu-button">
+              <svg
+                class="w-6 h-6 text-gray-500 hover:text-primary-500 cursor-pointer"
+                x-show="!showMenu"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- mobile menu -->
+      <div class="hidden md:hidden mobile-menu">
+        <ul class="">
+          <li class="active">
+            <a
+              href="./index.html"
+              class="block text-sm px-2 py-4 hover:bg-primary-300 hover:text-white transition duration-300"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="./upcomingevents.html"
+              class="block text-sm px-2 py-4 hover:bg-primary-300 hover:text-white transition duration-300"
+              >Upcoming Events</a
+            >
+          </li>
+          <li>
+            <a
+              href="./pastevents.html"
+              class="block text-sm px-2 py-4 hover:bg-primary-300 hover:text-white transition duration-300"
+              >Past Events</a
+            >
+          </li>
+          <li>
+            <a
+              href="./contact.html"
+              class="block text-sm px-2 py-4 text-white bg-primary-500 font-semibold"
+              >Contact</a
+            >
+          </li>
+          <li>
+            <a
+              href="./stats.html"
+              class="block text-sm px-2 py-4 hover:bg-primary-300 hover:text-white transition duration-300"
+              >Stats</a
+            >
+          </li>
+        </ul>
+      </div>
+      <script>
+        const btn = document.querySelector("button.mobile-menu-button")
+        const menu = document.querySelector(".mobile-menu")
+
+        btn.addEventListener("click", () => {
+          menu.classList.toggle("hidden")
+        })
+      </script>
+    </nav>
+
+    <section style="background-image: url('./assets/images/maraton.jpg')" class="flex flex-col justify-center h-[40vh] w-full bg-[url('./assets/images/maraton.jpg')] bg-fixed bg-no-repeat bg-cover shadow-lg">
+      <div class="flex flex-col justify-center w-full h-full text-center p-6 bg-tertiary bg-opacity-60">
+        <h1 class="text-[60px] font-bold text-secondary title-font mb-4 drop-shadow-md">
+          Ironman 70.3 World Championship
+        </h1>
+      </div>
+    </section>
+
+    <section class="h-[80vh] w-full flex flex-col items-center md:flex-row md:items-start">
+      <div class="bg-gray-100 h-full w-full md:w-[70%] m-5 rounded-md">
+        aaaaaa
+      </div>
+      <div class="bg-white h-auto w-full md:w-[30%] m-5 rounded-md flex flex-col items-center shadow-lg border-2">
+        <div class="flex flex-col items-center bg-white w-full p-4">
+          <h2 class="text-primary-500 font-bold text-lg">Calle Random N°123</h2>
+          <h3 class="text-tertiary font-medium tracking-widest">Santiago, Providencia</h3>
+        </div>
+        
+        <div class="bg-white w-full rounded-b-md flex justify-center">
+          <iframe class="w-full"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13134.14451153522!2d-58.37289931120606!3d-34.615889639753235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccadad85a755b%3A0x596a2eade487263a!2sPalacio%20Barolo!5e0!3m2!1ses!2sar!4v1669130062027!5m2!1ses!2sar"
+          allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-primary-500 flex justify-between mt-10">
+      <div class="p-5 flex w-56 justify-around items-center">
+        <a href="#">
+          <img
+            class="h-10 w-10"
+            src="./assets/icons/instagram.png"
+            alt="instagram-icon"
+          />
+        </a>
+        <a href="#">
+          <img
+            class="h-10 w-10"
+            src="./assets/icons/facebook.png"
+            alt="facebook-icon"
+          />
+        </a>
+        <a href="#">
+          <img
+            class="h-10 w-10"
+            src="./assets/icons/whatsapp.png"
+            alt="whatsapp-icon"
+          />
+        </a>
+      </div>
+      <div class="text-white flex flex-col justify-center p-5">
+        <h2 class="font-bold uppercase tracking-widest">MindHub Cohort 40</h2>
+        <h3 class="font-thin font-mono tracking-tighter">
+          by <span class="font-bold">Matías</span> Mora Valero
+        </h3>
+      </div>
+    </footer>
+    <script src="./main.js"></script>
+  </body>
+</html>
