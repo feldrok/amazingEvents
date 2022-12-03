@@ -1,6 +1,6 @@
 let currentDate = { "currentDate": "2022-01-01" }
 
-let events = [
+export const events = [
   {
     _id: 1,
     "image":"https://amazingeventsapi.herokuapp.com/api/img/Feriadecomidas7.jpg",
@@ -170,3 +170,5 @@ let events = [
     "price":250
   }
 ]
+
+export default events
