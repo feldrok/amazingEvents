@@ -2,13 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  .customCol {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .customHeight {
-    min-height: 450px;
-  }
+.display-none {
+  @apply hidden;
 }

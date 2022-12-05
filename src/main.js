@@ -1,14 +1,10 @@
-const btn = document.querySelector("button.mobile-menu-button")
-        const menu = document.querySelector(".mobile-menu")
-
-        btn.addEventListener("click", () => {
-          menu.classList.toggle("hidden")
-        })
-
 currentSlideID = 1
 
 sliderElement = document.getElementById("slider")
-totalSlides = sliderElement.childElementCount
+
+if (sliderElement !== null) {
+  totalSlides = sliderElement.childElementCount
+}
 
 function next() {
   if (currentSlideID < totalSlides) {

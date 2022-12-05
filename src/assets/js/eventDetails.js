@@ -1,4 +1,0 @@
-let event
-
-function getEvent() {
-    
