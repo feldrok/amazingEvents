@@ -217,182 +217,18 @@
 
     <!-- Navigation and Search bar -->
     <section
-      class="flex flex-col flex-wrap items-center justify-center p-5 xl:flex-nowrap xl:flex-row xl:justify-around"
+      class="flex flex-col flex-wrap items-center justify-center p-5 2xl:flex-nowrap 2xl:flex-row 2xl:justify-around"
     >
-      <div class="w-full xl:w-auto">
-        <ul class="flex border-b border-gray-100 dark:border-gray-600">
-          <li class="flex-1">
-            <a class="relative block p-4" href="">
-              <span
-                class="absolute inset-x-0 -bottom-px h-px w-full bg-pink-600"
-              ></span>
-
-              <div class="flex items-center justify-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-6 h-6 dark:text-white"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
-                  />
-                </svg>
-
-                <span
-                  class="ml-3 text-sm font-medium dark:text-white text-gray-900 hidden md:flex"
-                >
-                  Top
-                </span>
-              </div>
-            </a>
-          </li>
-          <li class="flex-1">
-            <a class="relative block p-4" href="">
-              <span class="absolute inset-x-0 -bottom-px h-px w-full"></span>
-
-              <div class="flex items-center justify-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-6 h-6 dark:text-white"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z"
-                  />
-                </svg>
-
-                <span
-                  class="ml-3 text-sm font-medium dark:text-white text-gray-900 hidden md:flex"
-                >
-                  Concerts
-                </span>
-              </div>
-            </a>
-          </li>
-
-          <li class="flex-1">
-            <a class="relative block p-4" href="">
-              <div class="flex items-center justify-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-6 h-6 dark:text-white"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0"
-                  />
-                </svg>
-
-                <span
-                  class="ml-3 text-sm font-medium dark:text-white text-gray-900 hidden md:flex"
-                >
-                  Sports
-                </span>
-              </div>
-            </a>
-          </li>
-
-          <li class="flex-1">
-            <a class="relative block p-4" href="">
-              <div class="flex items-center justify-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-6 h-6 dark:text-white"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z"
-                  />
-                </svg>
-
-                <span
-                  class="ml-3 text-sm font-medium dark:text-white text-gray-900 hidden md:flex"
-                >
-                  Museums
-                </span>
-              </div>
-            </a>
-          </li>
-
-          <li class="flex-1">
-            <a class="relative block p-4" href="">
-              <div class="flex items-center justify-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-6 h-6 dark:text-white"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 010 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 010-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375z"
-                  />
-                </svg>
-
-                <span
-                  class="ml-3 text-sm font-medium dark:text-white text-gray-900 hidden md:flex"
-                >
-                  Cinema
-                </span>
-              </div>
-            </a>
-          </li>
-          <li class="flex-1">
-            <a class="relative block p-4" href="">
-              <div class="flex items-center justify-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-6 h-6 dark:text-white"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"
-                  />
-                </svg>
-
-                <span
-                  class="ml-3 text-sm font-medium dark:text-white text-gray-900 hidden md:flex"
-                >
-                  Literature
-                </span>
-              </div>
-            </a>
-          </li>
+    <div class="w-full">
+      <ul class="flex border-b border-gray-100 dark:border-gray-600 containerCategoryButtons flex-wrap lg:flex-nowrap justify-center items-center">
+          
         </ul>
       </div>
       <div class="flex w-full lg:w-auto justify-center p-6">
         <div class="relative w-96 max-w-xl">
           <form action="">
             <div
-              class="flex justify-between overflow-hidden rounded-full bg-white shadow shadow-tertiary hover:scale-105 transition-all duration-150"
+              class="flex border justify-between overflow-hidden rounded-full bg-white shadow-md hover:scale-105 hover:shadow-none transition-all duration-150"
             >
               <input
                 type="search"
