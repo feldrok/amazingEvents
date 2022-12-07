@@ -123,49 +123,13 @@ function displayCategoryButtons() {
     .map(function (category) {
       return `
     <li class="flex-1 cursor-pointer justify-center items-center">
-    <a id="#${category}" class="flex p-4 drop-shadow filterButton h-full justify-center items-center m-3 hover:text-primary-500 dark:hover:text-primary-500 duration-150 text-sm text-gray-600 dark:text-white font-medium" data-id="${category}">
-      ${category}
-    </a>
+    <label class="flex p-4 drop-shadow filterButton h-full justify-center items-center m-3 hover:text-primary-500 dark:hover:text-primary-500 duration-150 text-sm text-gray-600 dark:text-white font-medium" for="${category}"><input type="checkbox" name="category" class="filterButton" value="${category}" id="${category}">${category}</label>
   </li>
     `
     })
     .join("")
   containerButton.innerHTML = categoryBtns
-  const filterButtons = document.querySelectorAll(".filterButton")
-  filterButtons.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      const category = e.currentTarget.dataset.id
-      const eventsCategory = events.filter(function (eventItem) {
-        if (eventItem.category === category) {
-          return eventItem
-        }
-      })
-      if (category === "All") {
-        displayCards(events)
-      } else {
-        displayCards(eventsCategory)
-      }
-    })
-  })
-  function handleActiveButton() {
-    const filterButtons = document.querySelectorAll(".filterButton")
-    filterButtons.forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        filterButtons.forEach((btn) => {
-          btn.classList.remove("text-gray-600")
-          btn.classList.remove("text-primary-500")
-          btn.classList.remove("dark:text-primary-500")
-          btn.classList.remove("border-b-2")
-          btn.classList.remove("border-primary-500")
-        })
-        e.currentTarget.classList.add("text-primary-500")
-        e.currentTarget.classList.add("border-b-2")
-        e.currentTarget.classList.add("border-primary-500")
-        e.currentTarget.classList.add("dark:text-primary-500")
-      })
-    })
-  }
-  handleActiveButton()
+  
 }
 
 window.addEventListener("DOMContentLoaded", function () {
