@@ -1,6 +1,7 @@
-import events from "./events.js"
+import data from "./events.js"
 
-let currentDate = "2022-01-01"
+let currentDate = data.currentDate
+console.log(currentDate)
 
 const cardsContainerAll = document.querySelector(".cardsContainerAll")
 const cardsContainerUpcoming = document.querySelector(".cardsContainerUpcoming")
@@ -10,7 +11,7 @@ const containerButton = document.querySelector(".containerCategoryButtons")
 
 function displayCards(eventItems) {
   if (cardsContainerAll) {
-    let displayEvents = eventItems.map(function (event) {
+    let displayEvents = eventItems.events.map(function (event) {
       return `
       <div class="xl:w-1/4 md:w-1/2 p-4 w-full h-full">
         <div class="bg-white min-h-[450px] dark:bg-tertiary dark:border-gray-200 dark:shadow-black shadow-md border flex flex-col justify-around p-6 rounded-lg hover:scale-105 hover:shadow-none duration-300">
@@ -41,7 +42,7 @@ function displayCards(eventItems) {
     displayEvents = displayEvents.join("")
     cardsContainerAll.innerHTML = displayEvents
   } else if (cardsContainerUpcoming) {
-    let displayEvents = eventItems.map(function (event) {
+    let displayEvents = eventItems.events.map(function (event) {
       if (event.date > currentDate) {
         return `
         <div class="xl:w-1/4 md:w-1/2 p-4 w-full h-full">
@@ -74,7 +75,7 @@ function displayCards(eventItems) {
     displayEvents = displayEvents.join("")
     cardsContainerUpcoming.innerHTML = displayEvents
   } else if (cardsContainerPast) {
-    let displayEvents = eventItems.map(function (event) {
+    let displayEvents = eventItems.events.map(function (event) {
       if (event.date < currentDate) {
         return `
         <div class="xl:w-1/4 md:w-1/2 p-4 w-full h-full">
@@ -110,7 +111,7 @@ function displayCards(eventItems) {
 }
 
 function displayCategoryButtons() {
-  const categories = events.reduce(
+  const categories = data.events.reduce(
     function (values, item) {
       if (!values.includes(item.category)) {
         values.push(item.category)
@@ -122,8 +123,8 @@ function displayCategoryButtons() {
   const categoryBtns = categories
     .map(function (category) {
       return `
-    <li class="flex-1 cursor-pointer justify-center items-center">
-    <label class="flex p-4 drop-shadow filterButton h-full justify-center items-center m-3 hover:text-primary-500 dark:hover:text-primary-500 duration-150 text-sm text-gray-600 dark:text-white font-medium" for="${category}"><input type="checkbox" name="category" class="filterButton" value="${category}" id="${category}">${category}</label>
+    <li class="flex-1 cursor-pointer justify-center items-center w-full">
+    <label class="flex p-4 drop-shadow filterButton h-full justify-center items-center m-3 hover:text-primary-500 dark:hover:text-primary-500 duration-150 text-sm text-gray-600 dark:text-white font-medium cursor-pointer" for="${category}"><input type="checkbox" name="category" class="filterButton hidden" value="${category}" id="${category}">${category}</label>
   </li>
     `
     })
@@ -133,6 +134,6 @@ function displayCategoryButtons() {
 }
 
 window.addEventListener("DOMContentLoaded", function () {
-  displayCards(events)
+  displayCards(data)
   displayCategoryButtons()
 })
