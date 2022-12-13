@@ -85,9 +85,6 @@ function busquedaCheck(checkedBoxes, eventArray) {
 function filterEvents() {
   const filterText = document.getElementById("search").value.toLowerCase()
   const checkedBoxes = Array.from(document.querySelectorAll("input[name=category]:checked")).map(el => el.value)
-  checkedBoxes.forEach((category) => {
-    return
-  })
   let filtradoTexto
   if (cardsContainerAll) {
     filtradoTexto = busqueda(filterText, data.events)
