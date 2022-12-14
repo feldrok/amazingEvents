@@ -65,8 +65,8 @@ const displayCategoryButtons = () => {
   const categoryBtns = categories
     .map((category) => {
       return `
-    <li class="flex-1 cursor-pointer justify-center items-center w-full">
-      <label class="flex p-4 drop-shadow filterButton h-full justify-center items-center m-3 hover:text-primary-500 dark:hover:text-primary-500 duration-150 text-sm text-gray-600 dark:text-white font-medium cursor-pointer" id="categoryLabel" for="${category}"><input type="checkbox" name="category" class="checkbox" value="${category}" id="${category}">${category}</label>
+    <li class="cursor-pointer justify-center items-center h-full w-auto">
+      <label class="flex border rounded-full p-4 shadow-md filterButton h-full justify-center items-center m-3 hover:scale-105 hover:shadow-none hover:text-primary-500 dark:hover:text-primary-500 duration-300 text-sm text-gray-600 dark:text-white font-medium cursor-pointer" id="categoryLabel" for="${category}"><input type="checkbox" name="category" class="checkbox hidden" value="${category}" id="${category}">${category}</label>
     </li>
     `
     })
@@ -85,17 +85,38 @@ function busquedaCheck(checkedBoxes, eventArray) {
 function filterEvents() {
   const filterText = document.getElementById("search").value.toLowerCase()
   const checkedBoxes = Array.from(document.querySelectorAll("input[name=category]:checked")).map(el => el.value)
+  const checkboxes = document.querySelectorAll("input[name=category]")
+  for (let i = 0; i < checkboxes.length; i++) {
+    checkboxes[i].addEventListener("change", () => {
+      if (checkboxes[i].checked) {
+        checkboxes[i].parentElement.classList.add("text-white")
+        checkboxes[i].parentElement.classList.remove("text-gray-600")
+        checkboxes[i].parentElement.classList.add("bg-primary-500")
+        checkboxes[i].parentElement.classList.add("scale-105")
+        checkboxes[i].parentElement.classList.remove("hover:text-primary-500")
+        checkboxes[i].parentElement.classList.remove("shadow-md")
+      } else {
+        checkboxes[i].parentElement.classList.remove("text-primary-500")
+        checkboxes[i].parentElement.classList.add("text-gray-600")
+        checkboxes[i].parentElement.classList.remove("bg-primary-500")
+        checkboxes[i].parentElement.classList.remove("scale-105")
+        checkboxes[i].parentElement.classList.add("hover:text-primary-500")
+        checkboxes[i].parentElement.classList.add("shadow-md")
+      }
+    })
+  }
+  
   let filtradoTexto
   if (cardsContainerAll) {
     filtradoTexto = busqueda(filterText, data.events)
     filtradoTexto = busquedaCheck(checkedBoxes, filtradoTexto)
     appendEvent(cardsContainerAll, filtradoTexto)
   } else if (cardsContainerUpcoming) {
-    filtradoTexto = busqueda(filterText, data.events)
+    filtradoTexto = busqueda(filterText, filteredEventsUpcoming)
     filtradoTexto = busquedaCheck(checkedBoxes, filtradoTexto)
     appendEvent(cardsContainerUpcoming, filtradoTexto)
   } else if (cardsContainerPast) {
-    filtradoTexto = busqueda(filterText, data.events)
+    filtradoTexto = busqueda(filterText, filteredEventsPast)
     filtradoTexto = busquedaCheck(checkedBoxes, filtradoTexto)
     appendEvent(cardsContainerPast, filtradoTexto)
   }
