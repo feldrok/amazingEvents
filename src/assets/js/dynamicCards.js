@@ -11,7 +11,7 @@ let filteredEvents = data.events
 let filteredEventsUpcoming = data.events.filter((event) => event.date > currentDate)
 let filteredEventsPast = data.events.filter((event) => event.date < currentDate)
 
-function appendEvent(container, eventsFiltered) {
+function renderEvent(container, eventsFiltered) {
   let displayEvent = eventsFiltered.map((event) => {
     return `
     <div class="xl:w-1/4 md:w-1/2 p-4 w-full h-full active" id="card">
@@ -35,7 +35,7 @@ function appendEvent(container, eventsFiltered) {
         </p>
         <div class="flex justify-between items-center pt-2">
         <h3 class="font-bold text-tertiary dark:text-gray-200">$${event.price} USD</h3>
-        <a class="p-2 pl-4 pr-4 rounded-full text-white bg-primary-500 dark:shadow-black shadow-md hover:shadow-none duration-150 hover:bg-primary-400" href="./eventDetails.html">More details...</a>
+        <a class="p-2 pl-4 pr-4 rounded-full text-white bg-primary-500 dark:shadow-black shadow-md hover:shadow-none duration-150 hover:bg-primary-400" href="./eventDetails.html?id=${event._id}">More details...</a>
         </div>
       </div>
     </div>
@@ -45,28 +45,23 @@ function appendEvent(container, eventsFiltered) {
   container.innerHTML = displayEvent
 }
 
-function displayCards() {
+function renderCards() {
   if (cardsContainerAll) {
-    appendEvent(cardsContainerAll, filteredEvents)
+    renderEvent(cardsContainerAll, filteredEvents)
   } else if (cardsContainerUpcoming) {
-    appendEvent(cardsContainerUpcoming, filteredEventsUpcoming)
+    renderEvent(cardsContainerUpcoming, filteredEventsUpcoming)
   } else if (cardsContainerPast) {
-    appendEvent(cardsContainerPast, filteredEventsPast)
+    renderEvent(cardsContainerPast, filteredEventsPast)
   }
 }
 
-const displayCategoryButtons = () => {
-  const categories = data.events.reduce((values, item) => {
-    if (!values.includes(item.category)) {
-      values.push(item.category)
-    }
-    return values
-  }, [])
+function renderCategories() {
+  const categories = [...new Set(data.events.map((event) => event.category))]
   const categoryBtns = categories
     .map((category) => {
       return `
     <li class="cursor-pointer justify-center items-center h-full w-auto">
-      <label class="flex border rounded-full p-4 shadow-md filterButton h-full justify-center items-center m-3 hover:scale-105 hover:shadow-none hover:text-primary-500 dark:hover:text-primary-500 duration-300 text-sm text-gray-600 dark:text-white font-medium cursor-pointer" id="categoryLabel" for="${category}"><input type="checkbox" name="category" class="checkbox hidden" value="${category}" id="${category}">${category}</label>
+      <label class="flex border rounded-full p-4 shadow-md filterButton h-full justify-center items-center m-3 hover:scale-105 hover:shadow-none hover:text-primary-500 dark:hover:text-primary-500 duration-300 text-sm text-gray-600 dark:text-white font-medium cursor-pointer dark:border-gray-500" id="categoryLabel" for="${category}"><input type="checkbox" name="category" class="checkbox hidden" value="${category}" id="${category}">${category}</label>
     </li>
     `
     })
@@ -74,11 +69,11 @@ const displayCategoryButtons = () => {
   containerButton.innerHTML = categoryBtns
 }
 
-function busqueda(filterText, eventArray) {
+function search(filterText, eventArray) {
   return eventArray.filter(event => event.name.toLowerCase().includes(filterText.toLowerCase()))
 }
 
-function busquedaCheck(checkedBoxes, eventArray) {
+function searchCheckbox(checkedBoxes, eventArray) {
   return eventArray.filter(event => checkedBoxes.includes(event.category) || checkedBoxes.length === 0)
 }
 
@@ -94,6 +89,7 @@ function filterEvents() {
         checkboxes[i].parentElement.classList.add("bg-primary-500")
         checkboxes[i].parentElement.classList.add("scale-105")
         checkboxes[i].parentElement.classList.remove("hover:text-primary-500")
+        checkboxes[i].parentElement.classList.remove("dark:hover:text-primary-500")
         checkboxes[i].parentElement.classList.remove("shadow-md")
       } else {
         checkboxes[i].parentElement.classList.remove("text-primary-500")
@@ -101,29 +97,29 @@ function filterEvents() {
         checkboxes[i].parentElement.classList.remove("bg-primary-500")
         checkboxes[i].parentElement.classList.remove("scale-105")
         checkboxes[i].parentElement.classList.add("hover:text-primary-500")
+        checkboxes[i].parentElement.classList.add("dark:hover:text-primary-500")
         checkboxes[i].parentElement.classList.add("shadow-md")
       }
     })
   }
-  
-  let filtradoTexto
+  let textFiltered
   if (cardsContainerAll) {
-    filtradoTexto = busqueda(filterText, data.events)
-    filtradoTexto = busquedaCheck(checkedBoxes, filtradoTexto)
-    appendEvent(cardsContainerAll, filtradoTexto)
+    textFiltered = search(filterText, data.events)
+    textFiltered = searchCheckbox(checkedBoxes, textFiltered)
+    renderEvent(cardsContainerAll, textFiltered)
   } else if (cardsContainerUpcoming) {
-    filtradoTexto = busqueda(filterText, filteredEventsUpcoming)
-    filtradoTexto = busquedaCheck(checkedBoxes, filtradoTexto)
-    appendEvent(cardsContainerUpcoming, filtradoTexto)
+    textFiltered = search(filterText, filteredEventsUpcoming)
+    textFiltered = searchCheckbox(checkedBoxes, textFiltered)
+    renderEvent(cardsContainerUpcoming, textFiltered)
   } else if (cardsContainerPast) {
-    filtradoTexto = busqueda(filterText, filteredEventsPast)
-    filtradoTexto = busquedaCheck(checkedBoxes, filtradoTexto)
-    appendEvent(cardsContainerPast, filtradoTexto)
+    textFiltered = search(filterText, filteredEventsPast)
+    textFiltered = searchCheckbox(checkedBoxes, textFiltered)
+    renderEvent(cardsContainerPast, textFiltered)
   }
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  displayCards()
-  displayCategoryButtons()
+  renderCards()
+  renderCategories()
   addEventListener("input", filterEvents)
 })

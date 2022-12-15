@@ -28,13 +28,36 @@
               </a>
               <!-- Dark mode toggle-->
               <div class="flex">
-                <svg class="w-6 sunIcon cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-6 h-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+                <svg
+                  class="w-6 sunIcon cursor-pointer"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="white"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+                  />
                 </svg>
-                <svg class="w-6 moonIcon cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+                <svg
+                  class="w-6 moonIcon cursor-pointer"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
+                  />
                 </svg>
-                
               </div>
             </div>
           </div>
@@ -70,8 +93,8 @@
           <div class="md:hidden flex items-center">
             <button class="outline-none mobile-menu-button">
               <svg
-              class="w-6 h-6 text-gray-500 hover:text-primary-500 cursor-pointer dark:text-white"
-              x-show="!showMenu"
+                class="w-6 h-6 text-gray-500 hover:text-primary-500 cursor-pointer dark:text-white"
+                x-show="!showMenu"
                 fill="none"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -129,164 +152,32 @@
 
     <main class="flex flex-col items-center min-h-screen">
       <div
-        style="background-image: url('./assets/images/maraton.jpg')"
-        class="flex flex-col justify-center h-[40vh] w-full bg-[url('./assets/images/maraton.jpg')] bg-fixed bg-no-repeat bg-cover shadow-lg"
+        class="flex flex-col justify-center h-[60vh] w-full bg-fixed bg-no-repeat bg-cover shadow-lg"
+        id="headerContainer"
       >
-        <div
-          class="flex flex-col justify-center w-full h-full text-center p-6 bg-tertiary bg-opacity-60"
-        >
-          <h1
-            class="text-[60px] font-bold text-secondary title-font mb-4 drop-shadow-md"
-          >
-            Ironman 70.3 World Championship
-          </h1>
-        </div>
+        <!-- Dynamically render header name-->
       </div>
 
       <section
         class="h-full w-full flex flex-col items-center lg:w-[80%] lg:flex-row lg:items-start"
       >
+        <!-- Main Info-->
         <div
-          class="bg-white shadow-md border-2 min-h-[60vh] w-full lg:w-[60%] m-5 rounded-md"
+          class="bg-white dark:bg-tertiary shadow-md border dark:border-gray-500 min-h-[60vh] w-full lg:w-[60%] m-5 rounded-md"
+          id="eventContainer"
         >
-          <div class="flex flex-col lg:flex-row p-4 items-center border-b-2">
-            <div
-              class="flex items-center justify-center p-4 lg:flex-col-reverse"
-            >
-              <h3
-                class="font-medium text-lg pr-2 text-primary-500 border-b-2 lg:border-0"
-              >
-                12
-              </h3>
-              <h2
-                class="font-bold text-xl text-primary-500 border-b-2 lg:border-0"
-              >
-                Dec
-              </h2>
-            </div>
-            <div class="flex flex-col items-center bg-white w-full p-1">
-              <h2 class="text-primary-500 font-bold text-lg p-1">
-                Ironman 70.3 World Championship
-              </h2>
-              <div class="flex flex-row p-1">
-                <img
-                  class="w-5 h-5 mr-2"
-                  src="./assets/icons/calendar.png"
-                  alt=""
-                />
-                <h3 class="text-gray-600 font-medium tracking-widest text-sm">
-                  Monday 12 December 2022, 10:00 AM
-                </h3>
-              </div>
-              <div class="flex flex-row p-1">
-                <img
-                  class="w-5 h-5 mr-2"
-                  src="./assets/icons/location.png"
-                  alt=""
-                />
-                <h3 class="text-gray-600 font-medium tracking-widest">
-                  Santiago, Providencia
-                </h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="h-full w-full">
-            <div
-              class="shadow-md h-[15%] w-full flex justify-center items-center mb-1 p-3"
-            >
-              <h2
-                class="font-bold tracking-tighter text-tertiary text-2xl drop-shadow-md"
-              >
-                Buy your tickets
-              </h2>
-            </div>
-            <div class="bg-slate-100">
-              <form action="">
-                <table class="min-w-full border-collapse table shadow-md">
-                  <thead class="table-header-group">
-                    <tr class="bg-white border-b-2">
-                      <th class="p-2 text-black font-bold text-left table-cell">
-                        Type
-                      </th>
-                      <th class="p-2 text-black font-bold text-left table-cell">
-                        Price
-                      </th>
-                      <th class="p-2 text-black font-bold text-left table-cell">
-                        Quantity
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody class="table-row-group">
-                    <tr class="bg-white border border-grey-500 table-row hover:bg-gray-100 duration-150">
-                      <td class="p-2 text-left md:table-cell">Basic Ticket</td>
-                      <td class="p-2 text-left table-cell">$60 USD</td>
-                      <td class="p-2 text-left table-cell">
-                        <div
-                          class="flex flex-row w-full h-10 rounded-md border shadow-md"
-                        >
-                        <select aria-label="ticketQ" class="w-full p-2" name="ticketQuantity1" id="ticketQuantity1">
-                          <option value="0">0</option>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                          <option value="6">6</option>
-                          <option value="7">7</option>
-                          <option value="8">8</option>
-                          <option value="9">9</option>
-                          <option value="10">10</option>
-                        </select>
-                      </div>
-                      </td>
-                    </tr>
-                    <tr class="bg-white border border-grey-500 table-row hover:bg-gray-100 duration-150">
-                      <td class="p-2 text-left table-cell">Full Ticket</td>
-                      <td class="p-2 text-left table-cell">$80 USD</td>
-                      <td class="p-2 text-left table-cell w-[10%]">
-                        <div
-                          class="flex flex-row w-full h-10 rounded-md border shadow-md"
-                        >
-                        <select aria-label="ticketQ" class="w-full p-2" name="ticketQuantity2" id="ticketQuantity2">
-                          <option value="0">0</option>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                          <option value="6">6</option>
-                          <option value="7">7</option>
-                          <option value="8">8</option>
-                          <option value="9">9</option>
-                          <option value="10">10</option>
-                        </select>
-                      </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div class="bg-white flex flex-col items-center justify-center">
-                  <div class="p-4">
-                    <p class="font-thin text-sm italic">Price includes service charge</p>
-                  </div>
-                  <button class="bg-primary-500 hover:bg-primary-400 text-white border p-4 mb-6 rounded-2xl shadow-md hover:scale-105 duration-150 hover:shadow-lg">
-                    <span class="pr-6 font-medium">Add to cart</span><span class="pl-6 border-l font-bold">$Total</span>
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
+          <!-- Dynamically render event info-->
         </div>
 
+        <!-- Sidebar info-->
         <div
-          class="bg-white h-auto w-full lg:w-[40%] m-5 rounded-md flex flex-col items-center shadow-md border-2"
+          class="h-auto w-full lg:w-[40%] m-5 rounded-md flex flex-col items-center shadow-md border dark:border-gray-500"
         >
-          <div class="flex flex-col items-center bg-white w-full p-4">
+          <div class="flex flex-col items-center bg-white dark:bg-tertiary w-full p-4 rounded-md">
             <h2 class="text-primary-500 font-bold text-lg">
               Calle Random N°123
             </h2>
-            <h3 class="text-tertiary font-medium tracking-widest">
+            <h3 class="text-tertiary dark:text-slate-200 font-medium tracking-widest">
               Santiago, Providencia
             </h3>
           </div>
@@ -336,6 +227,6 @@
       </div>
     </footer>
     <script src="./assets/js/darkMode.js"></script>
-    
+    <script src="./assets/js/eventDetail.js" type="module"></script>
   </body>
 </html>
