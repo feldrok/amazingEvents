@@ -1,15 +1,28 @@
-import data from "./events.js"
+let data
+let currentDate
+let filteredEvents
+let filteredEventsUpcoming
+let filteredEventsPast
+fetch("https://amazing-events.onrender.com/api/events")
+  .then(res => res.json())
+  .then(events => {
+    data = events
+    currentDate = data.currentDate
+    filteredEvents = data.events
+    filteredEventsUpcoming = data.events.filter(
+      (event) => event.date > currentDate
+    )
+    filteredEventsPast = data.events.filter((event) => event.date < currentDate)
+    renderCards()
+    renderCategories()
+  })
+  .catch(err => console.log(err))
 
-let currentDate = data.currentDate
 
 const cardsContainerAll = document.querySelector(".cardsContainerAll")
 const cardsContainerUpcoming = document.querySelector(".cardsContainerUpcoming")
 const cardsContainerPast = document.querySelector(".cardsContainerPast")
 const containerButton = document.querySelector(".containerCategoryButtons")
-
-let filteredEvents = data.events
-let filteredEventsUpcoming = data.events.filter((event) => event.date > currentDate)
-let filteredEventsPast = data.events.filter((event) => event.date < currentDate)
 
 function renderEvent(container, eventsFiltered) {
   let displayEvent = eventsFiltered.map((event) => {
@@ -78,16 +91,23 @@ function renderCategories() {
 }
 
 function search(filterText, eventArray) {
-  return eventArray.filter(event => event.name.toLowerCase().includes(filterText.toLowerCase()))
+  return eventArray.filter((event) =>
+    event.name.toLowerCase().includes(filterText.toLowerCase())
+  )
 }
 
 function searchCheckbox(checkedBoxes, eventArray) {
-  return eventArray.filter(event => checkedBoxes.includes(event.category) || checkedBoxes.length === 0)
+  return eventArray.filter(
+    (event) =>
+      checkedBoxes.includes(event.category) || checkedBoxes.length === 0
+  )
 }
 
 function filterEvents() {
   const filterText = document.getElementById("search").value.toLowerCase()
-  const checkedBoxes = Array.from(document.querySelectorAll("input[name=category]:checked")).map(el => el.value)
+  const checkedBoxes = Array.from(
+    document.querySelectorAll("input[name=category]:checked")
+  ).map((el) => el.value)
   const checkboxes = document.querySelectorAll("input[name=category]")
   for (let i = 0; i < checkboxes.length; i++) {
     checkboxes[i].addEventListener("change", () => {
@@ -97,7 +117,9 @@ function filterEvents() {
         checkboxes[i].parentElement.classList.add("bg-primary-500")
         checkboxes[i].parentElement.classList.add("scale-105")
         checkboxes[i].parentElement.classList.remove("hover:text-primary-500")
-        checkboxes[i].parentElement.classList.remove("dark:hover:text-primary-500")
+        checkboxes[i].parentElement.classList.remove(
+          "dark:hover:text-primary-500"
+        )
         checkboxes[i].parentElement.classList.remove("shadow-md")
       } else {
         checkboxes[i].parentElement.classList.remove("text-primary-500")
@@ -127,7 +149,5 @@ function filterEvents() {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  renderCards()
-  renderCategories()
   addEventListener("input", filterEvents)
 })

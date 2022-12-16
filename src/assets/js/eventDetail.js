@@ -1,4 +1,13 @@
-import data from "./events.js"
+let data
+let currentDate
+fetch("https://amazing-events.onrender.com/api/events")
+  .then((res) => res.json())
+  .then((events) => {
+    data = events
+    currentDate = data.currentDate
+    renderEvent(getParameter("id"))
+  })
+  .catch((err) => console.log(err))
 
 let headerContainer = document.getElementById("headerContainer")
 let eventContainer = document.getElementById("eventContainer")
@@ -150,6 +159,3 @@ function renderEvent(eventId) {
   </div>
   `
 }
-
-
-renderEvent(getParameter("id"))
