@@ -42,7 +42,15 @@ function renderEvent(container, eventsFiltered) {
     `
   })
   displayEvent = displayEvent.join("")
-  container.innerHTML = displayEvent
+  if (displayEvent === "") {
+    container.innerHTML = `
+    <h2 class="text-4xl font-bold text-primary-500 w-full text-center">
+      No events found with filter parameters, please try again.
+    </h2>
+    `
+  } else {
+    container.innerHTML = displayEvent
+  }
 }
 
 function renderCards() {
